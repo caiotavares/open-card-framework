@@ -1,0 +1,7 @@
+Name: com/gemplus/opencard/service/sim
+Specification-Title: "OCF1.2 SIM and SIM Toolkit CardServices" 
+Specification-Version: "0.1"
+Specification-Vendor: "Gemplus".
+Implementation-Title: "com.gemplus.opencard.service.sim" 
+Implementation-Version: "0.1"
+Implementation-Vendor: "Gemplus"

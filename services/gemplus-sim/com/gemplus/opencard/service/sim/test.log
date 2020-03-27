@@ -1,0 +1,49 @@
+$ more opencard.properties 
+
+# use the Basic SIM card service factory
+OpenCard.services = com.gemplus.opencard.service.sim.BasicSIMFactory
+
+# use Gemplus's card terminal GCR400
+OpenCard.terminals = com.gemplus.opencard.terminal.GemplusCardTerminalFactory|mygcr|GCR400|/dev/ttyS0
+
+#######################
+# TRACE configuration #
+#######################
+OpenCard.trace = opencard:6 com.gemplus.opencard.service:6 com.gemplus.opencard.terminal:4
+
+$ java com.gemplus.opencard.service.sim.Test
+------------------------------------------------------------
+BEGIN TEST
+
+Starting OCF...
+ Gemplus Card Terminal Version:  4.01.003 Date:  December 10, 1999
+ Did not find Gempluscardterminal.properties file
+ Uses OCF Polling list techniques
+Waiting for a SIM smart card...
+[INFO     ] com.gemplus.opencard.service.sim.BasicSIM.knows
+--- message   SIM_CARDTYPE card found!
+--- thread    Thread[Thread-0,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+
+-------------------------------------------
+STATUS
+-------------------------------------------
+Response to the 'STATUS' command:
+opencard.core.terminal.ResponseAPDU@4987a503
+0000:  85 14 00 88 3F 00 01 80 FF FF FF 03 09 09 04 0A  ....?...........
+0010:  04 00 82 8A 83 8A 90 00                          ........        
+
+[INFO     ] opencard.core.service.CardServiceScheduler.releaseSmartCard
+--- message   no more SmartCards, closing down
+--- thread    Thread[main,5,main]
+--- source    opencard.core.service.CardServiceScheduler@e1d3a502, is alive
+
+[INFO     ] opencard.core.service.CardServiceScheduler.releaseSmartCard
+--- message   no more SmartCards, closing down
+--- thread    Thread[main,5,main]
+--- source    opencard.core.service.CardServiceScheduler@e1d3a502, not alive
+
+
+END TEST.
+------------------------------------------------------------

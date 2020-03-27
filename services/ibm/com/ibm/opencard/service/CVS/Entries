@@ -1,0 +1,22 @@
+/AccessConditions.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/AccessInformation.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/CardAccessor.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/IBMCardServiceFactory.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFC35CardServiceImpl.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFC35Codes.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFC35ObjectSRParser.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFC41CardServiceImpl.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFC41Codes.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCardChannel.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCardObjectInfo.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCardObjectInfoCache.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCardService.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCardServiceImpl.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCardServiceParameter.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCChannelState.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCodes.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCCommandAPDU.java/1.1.1.1/Thu Sep  9 13:54:16 2004//
+/MFCGenericFactory.java/1.1.1.1/Thu Sep  9 13:54:17 2004//
+/MFCResponseAPDUCodes.java/1.1.1.1/Thu Sep  9 13:54:17 2004//
+/MFCSelectResponseParser.java/1.1.1.1/Thu Sep  9 13:54:17 2004//
+D

@@ -1,0 +1,25 @@
+/CHVDialog.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardChannel.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardHolderVerificationGUI.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardIDFilter.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardRequest.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardService.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceFactory.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceImplementationException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceInabilityException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceInvalidCredentialException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceInvalidParameterException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceOperationFailedException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceRegistry.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceRuntimeException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceScheduler.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardServiceUsageException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardType.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardWaiter.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/DefaultCHVDialog.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/DefaultCHVDialogResourceBundle.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/InvalidCardChannelException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/PrimaryCardServiceFactory.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/SmartCard.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+D

@@ -1,0 +1,1080 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (X11; I; SunOS 5.5.1 sun4m) [Netscape]">
+   <META NAME="Author" CONTENT="Nguyen Thanh Lam & Molag Tomasz">
+   <META NAME="Description" CONTENT="GSM Card access over OpenCard Framework">
+   <META NAME="Keywords" CONTENT="opencard, framework, SIM, GSM, cardservice, cardfactory">
+   <META NAME="Classification" CONTENT="interesting">
+   <TITLE>Project report</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<UL>
+<CENTER>
+<DT>
+<B><FONT FACE="Times New Roman,Times"><FONT SIZE=+4>GSM Card Access Over</FONT></FONT></B></DT></CENTER>
+
+<CENTER>
+<DT>
+<B><FONT FACE="Times New Roman,Times"><FONT SIZE=+4>OpenCard Framework</FONT></FONT></B></DT></CENTER>
+
+<CENTER>
+<DT>
+<B><FONT FACE="Times New Roman,Times"><FONT SIZE=+4>&nbsp;</FONT></FONT></B></DT></CENTER>
+
+<CENTER><FONT SIZE=+2><A HREF="mailto:nguyentl@eurecom.fr">Nguyen Thanh
+Lam</A></FONT></CENTER>
+
+<CENTER><FONT SIZE=+2><A HREF="mailto:molag@eurecom.fr">Molag Tomasz</A></FONT></CENTER>
+
+<CENTER>&nbsp;</CENTER>
+
+<CENTER>&nbsp;</CENTER>
+
+<CENTER>&nbsp;</CENTER>
+
+<CENTER>Supervisors:</CENTER>
+
+<CENTER>
+<DT>
+<FONT SIZE=-1>&nbsp;</FONT></DT></CENTER>
+
+<CENTER>
+<DT>
+<A HREF="mailto:loureiro@eurecom.fr">Loureiro Sergio</A></DT></CENTER>
+
+<CENTER>
+<DT>
+Prof. Molva Refik</DT></CENTER>
+
+<CENTER>
+<DT>
+<A HREF="mailto:Christophe.Muller@research.gemplus.com">Muller Christophe
+(GEMPLUS)</A></DT></CENTER>
+
+<CENTER>
+<DD>
+&nbsp;</DD></CENTER>
+
+<CENTER>
+<DD>
+&nbsp;</DD></CENTER>
+
+<CENTER>
+<DD>
+Semester project at the Corporate Communication Laboratory, <A HREF="http://www.eurecom.fr">EURECOM</A>,
+France</DD></CENTER>
+
+<CENTER>
+<DD>
+&nbsp;</DD></CENTER>
+
+<CENTER>
+<DD>
+<A HREF="http://www.eurecom.fr"><IMG SRC="logoeurecom.gif" HEIGHT=50 WIDTH=112></A></DD></CENTER>
+
+<CENTER>
+<DD>
+&nbsp;</DD></CENTER>
+
+<CENTER>
+<DD>
+<A HREF="http://www.gemplus.fr"><IMG SRC="gemplus_logo.gif" HEIGHT=30 WIDTH=162></A></DD></CENTER>
+
+<CENTER>
+<HR ALIGN=LEFT WIDTH="100%"></CENTER>
+
+
+<P>Frameworks are today's hot topics and so are Smart Cards. The OpenCard
+Consortium provides a solution, called OpenCard Framework, to interact
+with Smart Cards. GSM cards are particular smart cards and till now the
+OpenCard Framework does not support them.
+
+<P>
+<HR WIDTH="100%">
+<H2>
+Contents:</H2>
+1.0 <A HREF="#1.0 Project description">Project Description</A>
+<BR>2.0 <A HREF="#2.0 OpenCard Framework - Overview">OpenCard Framework
+- Overview</A>
+<BR>&nbsp;&nbsp;&nbsp; 2.1 <A HREF="#2.1 Introduction">Introduction</A>
+<BR>&nbsp;&nbsp;&nbsp; 2.2 <A HREF="#2.2 Description">Description</A>
+<BR>3.0 <A HREF="#3.0 SIM standard (GSM11.11)">SIM Standard (GSM 11.11)</A>
+<BR>&nbsp;&nbsp;&nbsp; 3.1 <A HREF="#3.1 Files">Files</A>
+<BR>&nbsp;&nbsp;&nbsp; 3.2 <A HREF="#3.2 Functions">Functions</A>
+<BR>4.0 <A HREF="#4.0 SIM Application Toolkit standard (GSM11.14)">SIM
+Application Toolkit Standard (GSM 11.14)</A>
+<BR>&nbsp;&nbsp;&nbsp; 4.1 <A HREF="#4.1 Profile Download">Profile Download</A>
+<BR>&nbsp;&nbsp;&nbsp; 4.2 <A HREF="#4.2 Proactive SIM">Proactive SIM</A>
+<BR>&nbsp;&nbsp;&nbsp; 4.3 <A HREF="#4.3 Terminal Response">Terminal Response</A>
+<BR>&nbsp;&nbsp;&nbsp; 4.4 <A HREF="#4.4 Envelope">Envelope</A>
+<BR>&nbsp;&nbsp;&nbsp; 4.5 <A HREF="#4.5 SIMPLE TLV data objects">SIMPLE
+TLV Data Object</A>
+<BR>&nbsp;&nbsp;&nbsp; 4.6 <A HREF="#4.6 BER TLV objects">BER TLV Object</A>
+<BR>5.0 <A HREF="#5.0     Actual SIM card access">Actual SIM Access</A>
+<BR>6.0 <A HREF="#6.0 Provided Solution">Provided Solution</A>
+<BR>&nbsp;&nbsp;&nbsp; 6.1 <A HREF="#6.1 Overview">Overview</A>
+<BR>&nbsp;&nbsp;&nbsp; 6.2 <A HREF="#6.2 SIMCommandCardService">SIMCommandCardService</A>
+<BR>&nbsp;&nbsp;&nbsp; 6.3 <A HREF="#6.3 SIMFileAccessCardService">SIMFileAccessCardService</A>
+<BR>&nbsp;&nbsp;&nbsp; 6.4 <A HREF="#6.4 SIMProactiveCardService">SIMProactiveCardService</A>
+<BR>&nbsp;&nbsp;&nbsp; 6.5 <A HREF="#6.5 Helper classes">Helper Classes</A>
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.5.1 <A HREF="#6.5.1 Class SIMPLE_TLV_Object">Class
+SIMPLE_TLV_Object</A>
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.5.2 <A HREF="#6.5.2 Class BER_TLV_Object">Class
+BER_TLV_Object</A>
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.5.3 <A HREF="#6.5.3 Class envelope_Object">Class
+envelope_Object</A>
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.5.4 <A HREF="#6.5.4 Class profile_Object">Class
+profile_Object</A>
+<BR>7.0 <A HREF="#7.0 Simulation">Simulation</A>
+<BR>8.0 <A HREF="#8.0 Enhancements">Enhancements</A>
+<BR>
+<HR WIDTH="100%">
+<H2>
+<A NAME="1.0 Project description"></A>1.0 Project Description</H2>
+The project's goal was to develop one OpenCard Framework component, called
+CardService, to manage the access to a GSM card (SIM). The access to the
+SIM is specified on the GSM standards 11.11 (SIM) and 11.14 (SIM Toolkit).
+
+<P>Notice: This document request knowledge of the JAVA language.
+<BR>
+<HR WIDTH="100%">
+<H2>
+<A NAME="2.0 OpenCard Framework - Overview"></A>2.0 OpenCard Framework
+- Overview</H2>
+
+<H4>
+<A NAME="2.1 Introduction"></A>2.1 Introduction</H4>
+Today it is too expensive to write applications that use smart cards. Each
+application is a proprietary solution typically restricted to:
+<BR>&nbsp;
+<UL>
+<LI>
+a limited subset of card readers</LI>
+
+<LI>
+a limited subset of smart cards</LI>
+
+<LI>
+a limited number of issuers</LI>
+
+<LI>
+mostly one platform.</LI>
+</UL>
+&nbsp;
+<BR>Hence the maintenance and extensibility of such an application is very
+difficult and expensive. But also the penetration of new cards and readers
+into the market is handicapped by those circumstances.
+
+<P>The <A HREF="http://www.opencard.org">OpenCard Consortium</A>, formed
+by the major manufacturers of smart card products, offers a solution to
+overcome those problems - the OpenCard Framework. The latest version is
+OCF1.1 .
+<H4>
+<A NAME="2.2 Description"></A>2.2 Description</H4>
+Before describing the OpenCard Framework itself, some notions have to be
+introduced for a better understanding.
+
+<P>The first notion is framework.
+<BR>A framework is a program solving a problem. Frameworks can be customized
+easily. Indeed, the program composing the framework contains "holes", which
+have to be filled to customize the program for user needs.
+
+<P>The second notion is design patterns.
+<BR>A design pattern is a common way for application designers to solve
+a well known problem. The OpenCard Framework includes two patterns :
+<BR>&nbsp;
+<UL>
+<LI>
+<B>Singleton pattern :</B> The program element, which respects this pattern
+is unique within a program. It provides a global point of access to other
+elements.</LI>
+
+<LI>
+<B>Factory pattern :</B> This pattern provides an interface for dynamic
+creation of items. Those items and their factory can be user specific.
+A factory knows how to create different items.</LI>
+</UL>
+&nbsp;
+<CENTER><IMG SRC="factory.gif" HEIGHT=141 WIDTH=520></CENTER>
+
+<CENTER>FIGURE 1. Factory pattern</CENTER>
+
+
+<P>The following figure (Figure 2) gives a global view of the entire OpenCard
+Framework.</UL>
+
+<CENTER><IMG SRC="ocf1_1.gif" HEIGHT=261 WIDTH=410></CENTER>
+
+<UL>
+<CENTER>FIGURE 2. OpenCard Framework</CENTER>
+
+
+<P>As stated in the project description, the knowledge of the JAVA language
+is required, because the whole OpenCard Framework is written in JAVA. JAVA
+was chosen because it is hardware and platform independent. Therefore this
+framework can be used on a very large number of computers.
+
+<P>The OpenCard Framework is composed of three elements:
+<BR>&nbsp;
+<UL>- OpenCard Framework Core
+<BR>- CardServiceRegistry
+<BR>- CardTerminalRegistry.
+<BR>&nbsp;</UL>
+The main part of the framework is the Framework Core. It includes a CardServiceRegistry
+and a CardTerminalRegistry. Those two classes are implemented using <I>the
+singleton pattern</I>.&nbsp; The customizable part of the framework, the
+"holes",&nbsp; are CardTerminal and CardService. Both elements use <I>the
+factory pattern.</I> The CardTerminal is a class that implements all methods
+needed to access the smart card inserted into the card reader. Usually
+it is delivered together with the card reader. The CardService offers services
+to access and manage the contents of the smart card itself, and should
+be provided together with the smart card.
+<BR>
+<HR WIDTH="100%">
+<H2>
+<A NAME="3.0 SIM standard (GSM11.11)"></A>3.0 SIM Standard (GSM 11.11)</H2>
+<A HREF="http://www.etsi.fr">ETSI document number: TS 100 977 V6.1.0 (1998-07)</A>
+
+<P>Defines the interface between the Subscriber Identity Module (SIM) and
+the Mobile Equipment (ME) for use during the network operation phase of
+GSM.
+<H4>
+<A NAME="3.1 Files"></A>3.1 Files</H4>
+The files are organized in a hierarchical structure and are either Master
+File (MF), Dedicated File (DF) or Elementary File (EF). The MF is an equivalent
+to the root of a file system and is unique on a card. DF is an equivalent
+to a directory. Functions described in this document allow to read, modify,
+select, update and search files. Unfortunately there are no functions to
+create a file.
+
+<P>After the Answer to Reset (ATR), the MF is implicitly selected and becomes
+the current directory. Each file may be selected by using the SELECT function.
+A DF shall be selected prior to the selection of any of its EFs and the
+selections are made using the file ID. The access is restricted by conditions
+of different levels.
+<H4>
+<A NAME="3.2 Functions"></A>3.2 Functions</H4>
+All functions are mapped to Application Protocol Data Units (APDU), which
+are used by the transmission protocol. There exist two sorts of APDU:
+<BR>&nbsp;
+<UL>
+<LI>
+Command APDU: from the ME to the SIM, consisting of the APDU class, instruction
+number, parameters for the instruction and a data field</LI>
+
+<LI>
+Response APDU: from the SIM to the ME, consisting of a data field, and
+two&nbsp;<A NAME="status words"></A>status words, SW1 and SW2.</LI>
+</UL>
+&nbsp;
+<BR>Those status words indicate if the previous command has been well performed
+or if an error occurred.
+
+<P>Functions are provided for:
+<BR>&nbsp;
+<UL>
+<LI>
+file handling</LI>
+
+<LI>
+security features</LI>
+
+<LI>
+GSM algorithm</LI>
+
+<LI>
+SIM Application Toolkit.</LI>
+</UL>
+
+<HR WIDTH="100%">
+<H2>
+<A NAME="4.0 SIM Application Toolkit standard (GSM11.14)"></A>4.0 SIM Application
+Toolkit Standard (GSM 11.14)</H2>
+<A HREF="http:///www.etsi.fr">ETSI document number: TS 101 267 V6.1.0 (1998-07)</A>
+
+<P>The document defines the interface between the Subscriber Identity Module
+(SIM) and the Mobile Equipment (ME), and mandatory procedures, specifically
+for "SIM Application Toolkit".
+
+<P>SIM Application Toolkit is a set of commands and procedures for use
+during the network operation phase of GSM, in addition to those defined
+in GSM 11.11.
+
+<P>The following mechanisms have been defined to interact with the ME:
+<BR>&nbsp;
+<UL>
+<LI>
+Profile download</LI>
+
+<LI>
+Proactive SIM</LI>
+
+<LI>
+Terminal Response</LI>
+
+<LI>
+Envelope download.</LI>
+</UL>
+
+<H4>
+<A NAME="4.1 Profile Download"></A>4.1 Profile Download</H4>
+Profile download provides a mechanism for the ME to indicate its capabilities
+to the SIM. The ME knows the capabilities of the SIM by reading the files
+SIM Service Table and EF<SUB>Phase</SUB>.
+
+<P>The profile is a <B>bit</B> array of supported facilities. This bit
+array is the contents of the Command APDU send to the SIM in this command.
+<H4>
+<A NAME="4.2 Proactive SIM"></A>4.2 Proactive SIM</H4>
+Proactive SIM gives a mechanism whereby the SIM can initiate actions to
+be taken by the ME like display text, play tone etc. .
+
+<P>The ME is always the "master" of the communication. The SIM indicates
+by returning <A HREF="#status words">SW1 = 0x91</A> in the Response APDU
+to a previous command, that it has information to be send. The ME then
+uses the function FETCH to retrieve the data from the SIM. After treating
+the information, the ME answers with the function TERMINAL RESPONSE.
+
+<P>The data field of the Response APDU to a FETCH command contains a BER
+TLV.
+<H4>
+<A NAME="4.3 Terminal Response"></A>4.3&nbsp; Terminal Response</H4>
+Once the ME has made its attempt to execute a proactive command from the
+SIM, the ME shall inform the SIM of the result by using TERMINAL RESPONSE.
+This message includes command details, the number of the command, a general
+result and sometimes more specific information.
+
+<P>The data field of the Command APDU TERMINAL RESPONSE consists of&nbsp;
+SIMPLE TLV data objects. The command header is specified in GSM 11.11.
+Length (A+B+C+D) is indicated by P3 in the Command APDU header.
+<BR>&nbsp;
+<CENTER><TABLE BORDER BGCOLOR="#FFFFCC" NOSAVE >
+<TR>
+<TD><B>Description</B></TD>
+
+<TD><B>Contents</B></TD>
+
+<TD><B>Mandatory / Optional</B></TD>
+
+<TD>
+<CENTER><B>Length</B></CENTER>
+</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>Command details</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>M</TD>
+
+<TD NOSAVE>
+<CENTER>A</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Device identities</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>M</TD>
+
+<TD>
+<CENTER>B</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Result</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>M</TD>
+
+<TD>
+<CENTER>C</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Additional information</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>requested by some proactive commands</TD>
+
+<TD>
+<CENTER>D</CENTER>
+</TD>
+</TR>
+
+<CAPTION ALIGN=BOTTOM>TABLE 1. Structure of TERMINAL RESPONSE&nbsp;</CAPTION>
+</TABLE></CENTER>
+&nbsp;
+<H4>
+<A NAME="4.4 Envelope"></A>4.4&nbsp; Envelope</H4>
+Envelope is a structure used to pass data from the ME to the SIM. This
+due to an answer of a proactive command or initiated by the network. Envelopes
+exist for different procedures:
+<BR>&nbsp;
+<UL>
+<LI>
+short message (SMS) download to the SIM</LI>
+
+<LI>
+menu selection after the proactive command SET UP MENU</LI>
+
+<LI>
+call control by SIM</LI>
+
+<LI>
+short message control by SIM</LI>
+
+<LI>
+event download</LI>
+
+<BR>&nbsp;</UL>
+The data field of the Command APDU of this function contains a BER TLV.
+<H4>
+<A NAME="4.5 SIMPLE TLV data objects"></A>4.5&nbsp; SIMPLE TLV Data Object</H4>
+A SIMPLE TLV data objects consists of a tag, a length indicator, which
+gives the number of bytes in the value field and a value part of variable
+length. SIMPLE TLV data objects may be transferred across the interface
+in both directions. If the length X is bigger then 127 bytes, the length
+field becomes two bytes long - the first byte holds the value '81' the
+second X.
+<BR>&nbsp;
+<CENTER><TABLE BORDER BGCOLOR="#FFFFCC" NOSAVE >
+<TR NOSAVE>
+<TD NOSAVE><B>Position</B></TD>
+
+<TD><B>Description</B></TD>
+
+<TD><B>Length in bytes</B></TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>Text string tag</TD>
+
+<TD>
+<CENTER>1</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>2 to (Y-1)+2</TD>
+
+<TD>Length(X)</TD>
+
+<TD>
+<CENTER>Y (1 or 2)</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>(Y-1)+3</TD>
+
+<TD>Data coding scheme</TD>
+
+<TD>
+<CENTER>1</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>(Y-1)=4 to (Y-1)+X+2</TD>
+
+<TD>Text string</TD>
+
+<TD>
+<CENTER>X-1</CENTER>
+</TD>
+</TR>
+
+<CAPTION ALIGN=BOTTOM>TABLE 2. Example of SIMPLE TLV: Text string&nbsp;</CAPTION>
+</TABLE></CENTER>
+&nbsp;
+<H4>
+<A NAME="4.6 BER TLV objects"></A>4.6 BER TLV Data Object</H4>
+A BER TLV object consists of a tag, a length field and a value. The object
+should be conform to the Basic Encoding Rules of ASN.1. If the length of
+the value field is bigger then 127 bytes, the length field becomes two
+bytes long - the first byte holds the value '81' the second the length
+of the value. In this specification, all BER TLV data objects are "primitive",
+because the value part consists only of SIMPLE TLV data objects.
+<BR>&nbsp;
+<CENTER><TABLE BORDER BGCOLOR="#FFFFCC" NOSAVE >
+<TR>
+<TD><B>Description</B></TD>
+
+<TD><B>Contents</B></TD>
+
+<TD><B>Mandatory / Optional</B></TD>
+
+<TD><B>Length in bytes</B></TD>
+</TR>
+
+<TR>
+<TD>BER tag</TD>
+
+<TD>byte</TD>
+
+<TD>
+<CENTER>M</CENTER>
+</TD>
+
+<TD>
+<CENTER>1</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Length(A+B+C+D+E)</TD>
+
+<TD>byte(s)</TD>
+
+<TD>
+<CENTER>M</CENTER>
+</TD>
+
+<TD>
+<CENTER>1 or 2</CENTER>
+</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>Command details</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>
+<CENTER>M</CENTER>
+</TD>
+
+<TD NOSAVE>
+<CENTER>A</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Device identities</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>
+<CENTER>M</CENTER>
+</TD>
+
+<TD>
+<CENTER>B</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Alpha identifier</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>
+<CENTER>O</CENTER>
+</TD>
+
+<TD>
+<CENTER>C</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Tone</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>
+<CENTER>O</CENTER>
+</TD>
+
+<TD>
+<CENTER>D</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>Duration</TD>
+
+<TD>SIMPLE TLV</TD>
+
+<TD>
+<CENTER>O</CENTER>
+</TD>
+
+<TD>
+<CENTER>E</CENTER>
+</TD>
+</TR>
+
+<CAPTION ALIGN=BOTTOM>TABLE 3. Example of BER TLV: Play tone</CAPTION>
+</TABLE></CENTER>
+
+<HR WIDTH="100%">
+<H2>
+<A NAME="5.0 Actual SIM card access"></A>5.0&nbsp; Actual SIM Card Access</H2>
+</UL>
+
+<CENTER>&nbsp;<IMG SRC="actualSolution.gif" HEIGHT=375 WIDTH=550></CENTER>
+
+<UL>
+<CENTER>FIGURE 3. Current access of SIM card</CENTER>
+
+
+<P>FIGURE 3 shows the current SIM access proposed by GEMPLUS. The class
+SimMain is the engine of the SIM Application Toolkit. It takes the predefined
+Command APDU from an indicated file and sends them to the card. Received
+Response APDUs are treated by the class GSMMobileEquipment. The results
+are displayed on a graphical user interface (GUI) based on JAVA Beans.
+
+<P>The communication with the card itself takes place over an already written
+CardTerminal for SIM cards. The CardTerminal in turn is implemented in
+Pure JAVA to access the card reader directly. To access the card reader
+over a Windows based Card Access System PC/SC, a JAVA Native Interface
+(JNI) is offered. The PC/SC communicates with the card reader over the
+serial interface. There also exists a "simple" SIM simulator applet which
+may be executed in a JAVA Virtual Machine (JVM) on a host. The communication
+takes place over the TCP/IP stack. The applet is not a full simulation
+of a GSM card but only designed to demonstrate the cooperation with SIM
+cards.
+
+<P>To write programs which interact with the card, one is still obligated
+to know the exact contents of APDUs. This is not at all user friendly.
+<BR>
+<HR WIDTH="100%">
+<H2>
+<A NAME="6.0 Provided Solution"></A>6.0 Provided Solution</H2>
+
+<H4>
+<A NAME="6.1 Overview"></A>6.1 Overview</H4>
+
+<CENTER><IMG SRC="ourSolution.gif" HEIGHT=403 WIDTH=458></CENTER>
+
+<CENTER>FIGURE 4. Proposed structure</CENTER>
+
+
+<P>The design of our CardService requires four elements : three CardServices
+and one Factory. We divided SIM/PROACTIVE into three CardServices to respect
+the philosophy of groups with similar functions. We could have done the
+CardService as one class,&nbsp; but it would not have been easy to understand
+and to use. The reasons that lead us to use three instead of one CardService
+are following:
+
+<P>The SIMCommandCardService is the main class of our CardService. Indeed,
+it implements <I>all</I> the functions described in the GSM 11.11 technical
+sheet . This CardService is placed on a very low layer, because all commands
+return an APDU (Application Protocol Data Unit, <A HREF="#3.0 SIM standard (GSM11.11)">c.f.
+GSM 11.11</A> for more details). We decided to make it a CardService to
+allow other developers to write CardServices similar to those we propose
+based on SIMCommandCardService.
+
+<P>The SIMFileAccessCardService offers access to the files embedded in
+the file system on the SIM. This interface is a high level access standardized
+by the OpenCard Consortium. SIMs are not ISO 7816-4 compliant. Therefore
+the file access to SIMs can not be ISO compliant. The reason is that SIM
+cards do not provide all features defined in ISO 7816-4 standard. Principally
+SIMs use different error codes and application IDs are not supported. To
+simplify the use of the file system on a SIM card, we implemented a SIMFileAccessCardService
+that respect the proposed interface of ISO 7816-4 file access.
+
+<P>We decided to place SIMProactiveCardService on the CardService layer.
+In the beginning this service was included in the SIMCommandCardService
+to allow an easier way to use the four SIM Toolkit commands. As stated
+before, we decided to have the SIMCommandCardService implementing only
+the commands in GSM 11.11. So we divided our former SIMCommandCardService
+into two parts - the actual SIMCommandCardService and the SIMProactiveCardService.
+
+<P>FIGURE 5 represents all the classes implemented during the project.
+In the figure one will find several kinds of arrows with different meanings.
+A plain arrow indicates that the class/interface at the head of the arrow
+is extended/implemented. A dotted arrow means that the class needs implementation
+of those interfaces in order to be functional.</UL>
+
+<CENTER><IMG SRC="gemplus_sim.gif" HEIGHT=375 WIDTH=692></CENTER>
+
+<UL>
+<CENTER>FIGURE 5. Overview of our classes/interfaces</CENTER>
+&nbsp;
+<BR>FIGURE 5. also shows that the SIMProactiveCardService requires four
+different interfaces (BER_TLV, envelope, terminal response and profile).
+This will be explained in the <A HREF="#6.4 SIMProactiveCardService">SIMProactiveCardService</A>,
+right after the <A HREF="#6.2 SIMCommandCardService">SIMCommandCardService</A>
+and the <A HREF="#6.3 SIMFileAccessCardService">SIMFileAccessCardService</A>.
+<H4>
+<A NAME="6.2 SIMCommandCardService"></A>6.2 SIMCommandCardService</H4>
+This class is the heart of our CardService. It provides a low level interface
+to communicate with the smart card. Indeed, all methods used here require
+parameters as close as possible to those defined in the GSM 11.11 technical
+sheet. The following table describes the command READ BINARY:
+<BR>&nbsp;
+<CENTER><TABLE BORDER WIDTH="80%" BGCOLOR="#FFFFCC" NOSAVE >
+<TR>
+<TD>
+<CENTER><B>COMMAND</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>CLASS</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>INS</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>P1</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>P2</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>P3</B></CENTER>
+</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>
+<CENTER>READ BINARY</CENTER>
+</TD>
+
+<TD NOSAVE>
+<CENTER>'A0'</CENTER>
+</TD>
+
+<TD>
+<CENTER>'B0'</CENTER>
+</TD>
+
+<TD>
+<CENTER>offset high</CENTER>
+</TD>
+
+<TD>
+<CENTER>offset low</CENTER>
+</TD>
+
+<TD>
+<CENTER>length</CENTER>
+</TD>
+</TR>
+
+<CAPTION ALIGN=BOTTOM>
+<CENTER>TABLE 4. READ BINARY Command APDU</CENTER>
+</CAPTION>
+</TABLE></CENTER>
+Response parameters / data retrieved from the SIM:
+<BR>&nbsp;
+<CENTER><TABLE BORDER WIDTH="80%" BGCOLOR="#FFFFCC" NOSAVE >
+<TR>
+<TD>
+<CENTER><B>Byte(s)</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>Description</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>Length</B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<CENTER>1 - length</CENTER>
+</TD>
+
+<TD>
+<CENTER>Data to be read</CENTER>
+</TD>
+
+<TD>
+<CENTER>length</CENTER>
+</TD>
+</TR>
+
+<CAPTION ALIGN=BOTTOM>TABLE 5. Data part in Response APDU to read binary
+command</CAPTION>
+</TABLE></CENTER>
+&nbsp;
+<BR>This command has the following prototype:
+<UL>&nbsp;public Response APDU readBinary( short offset, byte length )
+;</UL>
+&nbsp;
+<BR>All other commands in GSM 11.11 are of the same prototype. Offsets
+given in two different bytes are merged into one short number. If one or
+more fields (CLASS, INS, P1, P2 or P3) are fixed in the technical sheet,
+they do not need to be delivered to the corresponding method in the CardService.
+
+<P>All responses from the methods in this CardService are Response APDUs.
+THIS CARDSERVICE THROWS NO EXCEPTIONS BY ITSELF.&nbsp; It forwards exceptions
+thrown by the CardChannel or CardTerminal. ALL ERRORS FROM THOSE METHODS
+ARE CODED IN THE RESPONSE APDU (SW1 &amp; SW2) and should be caught by
+the user. Therefore the interface SIMResponseAPDUCode is provided.
+
+<P>We added two public methods not defined in GSM 11.11 to this CardService.
+Those methods are proactiveCommandWaiting() and getProactiveCommandLength().
+The first one returns true if there is a proactive command in waiting.
+If so, the ME should perform a FETCH command as soon as possible. The second
+method indicates the length of the proactive command in waiting. This value
+is requested by the FETCH function to allocate a buffer of sufficient size.
+<H4>
+<A NAME="6.3 SIMFileAccessCardService"></A>6.3 SIMFileAccessCardService</H4>
+This CardService implements a high level interface for access to the file
+system of a SIM card. IBM already offers a FileAccessCardService for the
+MFC cards. It would have been easy to reuse this service for the GSM cards.
+Indeed, IBM has developed a CardService that uses ISO 7816-4 commands.
+In the beginning of the project we tried to reuse as many existing classes
+of the OpenCard Framework as possible. So we decided to study the MFC architecture
+to determine if it could be reused for this project. But unfortunately
+the MFC classes were designed upon a different approach. Although the CardService
+of IBM extends the OpenCard CardService, it is too integrated to be useful
+for other purposes. For instance the classical CardChannel is extended
+to allow encryption and all CardServices of IBM use this modified CardChannel.
+GSM cards do not provide encryption yet and therefore we could not reuse
+the code of IBM. So we decided to construct a total new FileAccessCardService.
+
+<P>Let's turn back to the description of the SIMFileAccessCardService.
+This class extends the SIMCommandCardService and implements the FileAccess
+interface proposed by OpenCard Framework. Another point is the Secure Service.
+This part has to be explained particularly. The FileAccess interface extends
+another interface, the secure service interface. So SIMFileAccessCardService
+has to provide all methods in this interface.
+
+<P>The secure service interface is composed of only one method: provideCredentials(SecurityDomain,
+CredentialBag). Our implementation of this method stores domain and credential
+bag in private variables. If a user likes to use the interface in a different
+manner, he has to write a class implementing this method and <I>replace
+the default implementation</I> with its class by calling the method setSecureService().
+This class needs another class as parameter, that provides the secure service
+interface.
+
+<P>Another method is to provide getSecureService which returns the secure
+service class used with the CardService.
+
+<P>Remark: Each file possess access rights (CHV1, CHV2, ...) for writing,
+reading and modifying the file. At the moment we do not provide any functions
+to obtain the access condition list nor high level functions to fulfill
+those conditions.
+
+<P>In this CardService all returned codes from SIMCommandCardService are
+transformed into exceptions if they indicate an error.
+
+<P>All the exceptions are organized as a tree. A tree allows an easier
+handling of exception. All exceptions in SIMFileAccessCardService and SIMProactiveCardService
+extends from SIMCardServiceException. All errors of the SIM are grouped
+to families. GSM 11.11 technical sheet defines six errors families:
+<BR>&nbsp;
+<UL>no errors
+<BR>postponed commands
+<BR>memory management errors
+<BR>referencing management errors
+<BR>security management errors
+<BR>application independent errors</UL>
+&nbsp;
+<BR>We provide four exception classes which are parents of all errors in
+each family.
+<H4>
+<A NAME="6.4 SIMProactiveCardService"></A>6.4 SIMProactiveCardService</H4>
+In the SIMProactiveCardService all functions are used by the SIM Application
+Toolkit. This CardService extends the SIMCommandCardService which is the
+holder of all commands to communicate with the CardTerminal. Because there
+were no interface defined yet by the OpenCard Consortium, we were free
+to choose the hand over parameters.
+
+<P>We defined four methods:
+<BR>&nbsp;
+<UL>
+<LI>
+public void profileDownload( Profile_interface profile )</LI>
+
+<LI>
+public byte[] envelope( Envelope_interface envelope)</LI>
+
+<LI>
+public void terminalResponse( TerminalResponse_interface terminalresponse)</LI>
+
+<LI>
+public Enumeration fetch( int length, BER_TLV_interface ber ).</LI>
+</UL>
+&nbsp;
+<BR>As one can see, we only pass interfaces as parameters. This way the
+implementation of the parameters may be replaced without having to change
+the CardService.&nbsp; Upon the interfaces we built our helper classes,
+which are explained later in this document. All interfaces, except&nbsp;
+BER_TLV_interface, include two methods getBytes() and getLength(). The
+first method requires the class to return the relevant information (header
+&amp; data) as a byte array. The method getLength() returns the entire
+length of the byte array.
+
+<P>For the BER_TLV_interface, there are three methods:
+<BR>&nbsp;
+<UL>
+<LI>
+&nbsp;constructBER_TLV( byte[] data ) is here to pass the data from fetch
+to the user's handling class</LI>
+
+<LI>
+&nbsp;getNbOfObjects() returns the number of objects found within the retrieved
+data</LI>
+
+<LI>
+&nbsp;Object readObject( int index ) return a class representing one object.</LI>
+</UL>
+&nbsp;
+<BR>The handling of those objects to retrieve information like proactive
+command is left to the user.
+
+<P>All four methods throw CardServiceExceptions in case of unexpected status
+words in the Response APDU of the SIM. The exceptions are identically to
+the exceptions of the SIMFileAccessCardService.
+<H4>
+<A NAME="6.5 Helper classes"></A>6.5 Helper Classes</H4>
+The helper classes are our implementation of interfaces used by CardServices
+in order to run a simulation. We do not describe all the functionality
+of each class. We will only give the reasons why we implemented those classes.
+<H5>
+<A NAME="6.5.1 Class SIMPLE_TLV_Object"></A>6.5.1 Class SIMPLE_TLV_Object</H5>
+This class is used for the creation and parsing of SIMPLE TLVs. All constants
+are defined in the interfaces:
+<BR>&nbsp;
+<UL>
+<LI>
+SIMPLE_TLVtagCode</LI>
+
+<LI>
+deviceCode</LI>
+
+<LI>
+toneCode</LI>
+
+<LI>
+intervalCode.</LI>
+</UL>
+&nbsp;
+<BR>This class throws SIMPLE_TLV_Exceptions if an unauthorized access has
+been attempted.
+<H5>
+<A NAME="6.5.2 Class BER_TLV_Object"></A>6.5.2 Class BER_TLV_Object</H5>
+This class is used for the creation and parsing of BER TLVs received from
+the SIM. A BER TLV is built from the data field of the Response APDU of
+the SIM command FETCH. As BER TLVs used in a GSM session consist of SIMPLE
+TLVs, this class breaks the BER TLV into SIMPLE TLV.
+<H5>
+<A NAME="6.5.3 Class envelope_Object"></A>6.5.3 Class envelope_Object</H5>
+This class is used if data has to be sent to the SIM. We did not reuse
+the BER_TLV_Object class for this purpose to clearly distinguish between
+data from the SIM and data from the ME. Beside the constructor hardly any
+methods are available.
+<H5>
+<A NAME="6.5.4 Class profile_Object"></A>6.5.4 Class profile_Object</H5>
+This class gives the user a high level interface to construct the profile
+bit array. The user will set/unset features by using two methods:
+<BR>&nbsp;
+<UL>
+<LI>
+setFeature( int )</LI>
+
+<LI>
+unSetFeature( int ).</LI>
+</UL>
+&nbsp;
+<BR>The parameter of those methods are defined in the profileCode interface.
+<BR>
+<HR WIDTH="100%">
+<H2>
+<A NAME="7.0 Simulation"></A>7.0 Simulation</H2>
+To test the CardService, we used a GEMPLUS card reader GCR410-X and two
+GSM cards programmed for this test. One card contained the proactive command
+DISPLAY TEXT with the text string "Hello". The other card contained the
+proactive command SET UP MENU. Both cards were SIM&nbsp; Phase 2+ cards
+in order to issue proactive commands. An application handling proactive
+commands has to perform the following steps:
+<BR>&nbsp;
+<OL>
+<LI>
+perform CHV test</LI>
+
+<LI>
+select file DFgsm (':7F20')</LI>
+
+<LI>
+select file EFsst ('6F38')</LI>
+
+<LI>
+check if the service n.29 is activated (Proactive SIM)</LI>
+
+<LI>
+if proactive commands are not supported, suspend proactive command handling</LI>
+
+<LI>
+download the terminal profile to the SIM card</LI>
+
+<LI>
+test if a proactive command is waiting</LI>
+
+<LI>
+send the command FETCH</LI>
+</OL>
+&nbsp;
+<BR>Our simulator enters directly at step six after having performed the
+CHV verification, because we know well that both cards were programed to
+support proactive commands.
+
+<P>Right after the downloading of the profile, there is a proactive command
+waiting to be processed. But it is not fetched immediately. The simulator
+enters an infinite loop. The first instruction the simulator should send
+is a status command. This status command should be performed on idle time
+to keep the connection with the SIM open and to test whether a proactive
+command is waiting or not. A waiting command is fetched and processed.
+Afterwards the simulator enters the loop again.
+
+<P>The simulator processes only two proactive commands SET UP MENU and
+DISPLAY TEXT.
+<BR>
+<HR WIDTH="100%">
+<H2>
+<A NAME="8.0 Enhancements"></A>8.0 Enhancements</H2>
+CardServices could be to used to provide an easier development of software
+shipped with a mobile equipment. If all mobile equipment were based on
+OpenCard Framework, applications could be reused easily in different mobile
+equipment without any changes.
+
+<P>One can imagine to write an application that customizes your mobile
+equipment. All relevant data are stored as commands on the GSM card. Now,
+if the SIM is inserted into a mobile equipment, the embedded application
+will perform a set up of an environment independent of the used mobile
+equipment.
+
+<P>Other enhancements to this project could have been done and have not
+been done because of the lack of time. For example a class that gives a
+list of access conditions depending on a given file would help the programer
+to make automatic request in order to fulfill those conditions. Another
+useful helper would be to finish the simulator and to make it a full proactive
+command parser.
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;</UL>
+
+</BODY>
+</HTML>

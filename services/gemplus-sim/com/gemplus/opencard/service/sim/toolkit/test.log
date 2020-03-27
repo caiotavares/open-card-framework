@@ -1,0 +1,548 @@
+$ make dotest
+java com.gemplus.opencard.service.sim.toolkit.Test
+------------------------------------------------------------
+BEGIN TEST
+
+Starting OCF...
+ Gemplus Card Terminal Version:  4.01.003 Date:  December 10, 1999
+ Did not find Gempluscardterminal.properties file
+ Uses OCF Polling list techniques
+Waiting for a SIM smart card...
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.knows
+--- message   STATUS CommandAPDU : opencard.core.terminal.CommandAPDU@20e197db
+0000:  A0 F2 00 00 16 00 00 00 00 00 00 00 00 00 00 00  ................
+
+--- thread    Thread[Thread-0,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.knows
+--- message   STATUS ResponseAPDU : opencard.core.terminal.ResponseAPDU@390d97db
+0000:  00 00 0E A2 3F 00 01 00 00 00 00 00 09 09 03 0F  ....?...........
+0010:  08 00 83 8A 81 89 90 00                          ........        
+
+--- thread    Thread[Thread-0,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[INFO     ] com.gemplus.opencard.service.sim.BasicSIM.knows
+--- message   SIM_CARDTYPE card found!
+--- thread    Thread[Thread-0,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+CardService: com.gemplus.opencard.service.sim.BasicSIM@303997db|true
+
+-------------------------------------------
+1) Unblock CHV 1
+2) Default Processing (infinite loop)
+-------------------------------------------
+2
+Default Choice.
+Send verifyCHV...
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   Enter in verifyCHV Code.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   set IOCtrl.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   IOCtrl ok
+CHVCtrl
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   CHVCtrl ok
+allocateCardChannel...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   allocateCardChannel ok
+getCardChannel...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   getCardChannel ok
+Open ...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   Send sendVerifiedAPDU...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   Send sendVerifiedAPDU ok.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+[DEBUG    ] com.gemplus.opencard.service.sim.BasicSIM.verifyCHV
+--- message   Exit in verifyCHV.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.BasicSIM
+
+SW : 9000
+verifyCHV Ok
+setFeature...
+setFeature Ok
+profileDownload...
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.throwException
+--- message   SW1 = ffffff91 | SW2 = 2b
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+profileDownload Ok
+proactiveCommandInWaiting ?
+
+| SW1 = ffffff91 SW2 = 2b |
+Proactive Command is Waiting.
+Fetch...
+
+Fetch length = 2b
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.throwException
+--- message   SW1 = ffffff90 | SW2 = 0
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   CONSTRUCT BER...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Envelope length : 29
+pointer to tag.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 2): 81
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 3): 3
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 1 : 3
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 7): 82
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 8): 2
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 2 : 2
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 11): 85
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 12): 8
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 3 : 8
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 21): 8f
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 22): 9
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 4 : 9
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 32): 8f
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 33): 9
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 5 : 9
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   CONSTRUCT BER ok.
+getNbOfObjects...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Envelope length : 29
+pointer to tag.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 2): 81
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 3): 3
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 1 : 3
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 7): 82
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 8): 2
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 2 : 2
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 11): 85
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 12): 8
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 3 : 8
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 21): 8f
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 22): 9
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 4 : 9
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object tag (pointer = 32): 8f
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   object length (pointer = 33): 9
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.getNbOfObjects
+--- message   Object 5 : 9
+.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   5 objects.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   Add object 1 to list.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   enter readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Object tag (pointer = 2): 81
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   exit readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   Add object 2 to list.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   enter readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 2): 81
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Object tag (pointer = 7): 82
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   exit readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   Add object 3 to list.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   enter readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 2): 81
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 7): 82
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Object tag (pointer = 11): 85
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   exit readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   Add object 4 to list.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   enter readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 2): 81
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 7): 82
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 11): 85
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Object tag (pointer = 21): 8f
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   exit readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   Add object 5 to list.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   enter readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 2): 81
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 7): 82
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 11): 85
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Passing : Object tag (pointer = 21): 8f
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   Object tag (pointer = 32): 8f
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicBERTLV.readObject
+--- message   exit readObject...
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicBERTLV
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.fetch
+--- message   list done.
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+Fetch Ok.
+Command Details Tag:1
+Command Details...
+Command Type = 25
+Skipped Simple TLV Tag:2
+Skipped Simple TLV Tag:5
+
+-------------------------------------------
+-- Choose between:                       --
+Simple TLV Tag: f
+0) [B@1f0d97d5
+Simple TLV Tag: f
+1) [B@189997d5
+
+1
+-- Read: 1--
+-------------------------------------------
+Simple TLV Tag: 3
+Simple TLV Tag: 2
+Constructing Terminal Response...
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse.Constructor
+--- message   Object 1 tag : 1
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse.Constructor
+--- message   Object 2 tag : 2
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse.Constructor
+--- message   Object 3 tag : 3
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse.Constructor
+--- message   length : 13
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicTerminalResponse
+
+Constructing Terminal Response Ok.
+Send Terminal Response...
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.terminalResponse
+--- message   terminal response length : d
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.terminalResponse
+--- message   terminal response length : d
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.terminalResponse
+--- message   SW1 : ffffff90 & SW2 : 0
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+[DEBUG    ] com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit.throwException
+--- message   SW1 = ffffff90 | SW2 = 0
+--- thread    Thread[main,5,main]
+--- source    class com.gemplus.opencard.service.sim.toolkit.BasicSIMToolkit
+
+Send Terminal Response Ok.
+
+| SW1 = ffffff90 SW2 = 0 |
+| SW1 = ffffff90 SW2 = 0 |
+| SW1 = ffffff90 SW2 = 0 |
+| SW1 = ffffff90 SW2 = 0 |
+.....
+
+Error 4 : Reader return status: -9 Message: <Card removed.  The card has been withdrawn during the execution is not partially completed.> buffer received:  <<00 00>>null0
+[INFO     ] opencard.core.service.CardServiceScheduler.releaseSmartCard
+--- message   no more SmartCards, closing down
+--- thread    Thread[main,5,main]
+--- source    opencard.core.service.CardServiceScheduler@236997db, is alive
+++  channel is allocated
+
+[WARNING  ] opencard.core.service.CardServiceScheduler.closeDown
+--- message   closing opencard.core.service.CardChannel@213597db, is open, not jammed
+--- thread    Thread[main,5,main]
+--- source    opencard.core.service.CardServiceScheduler@236997db, not alive
+++  channel is allocated
+
+[INFO     ] opencard.core.service.CardServiceScheduler.releaseSmartCard
+--- message   no more SmartCards, closing down
+--- thread    Thread[main,5,main]
+--- source    opencard.core.service.CardServiceScheduler@236997db, not alive
+
+
+END TEST.
+------------------------------------------------------------
+make: *** [dotest] Error 1
+
+$ 

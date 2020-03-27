@@ -1,0 +1,23 @@
+/APDU.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CHVControl.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/CHVEncoder.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/CardID.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardNotPresentException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardTerminal.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardTerminalException.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardTerminalFactory.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardTerminalIOBlender.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardTerminalIOControl.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CardTerminalRegistry.java/1.1.1.1/Tue Sep  7 12:23:46 2004//
+/CommandAPDU.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/CommunicationErrorException.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/InvalidSlotChannelException.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/Observer.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/Pollable.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/ResponseAPDU.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/Slot.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/SlotChannel.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/TerminalInitException.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/TerminalTimeoutException.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+/VerifiedAPDUInterface.java/1.1.1.1/Tue Sep  7 12:23:47 2004//
+D

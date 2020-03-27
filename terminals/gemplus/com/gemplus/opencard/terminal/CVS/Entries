@@ -1,0 +1,13 @@
+/APDUDataInputStream.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/APDUDataOutputStream.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/APDUDataStreamException.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/ConnectionException.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/ExtendedCommandAPDU.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/GemCoreCardTerminal.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/GemplusBlockProtocol.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/GemplusCardTerminalFactory.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/GemplusSerialCardTerminal.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/OrosCardTerminal.java/1.1.1.1/Thu Sep  9 13:55:12 2004//
+/TestExtendedCommandAPDU.java/1.1.1.1/Thu Sep  9 13:55:13 2004//
+/opencard.properties/1.1.1.1/Thu Sep  9 13:55:12 2004//
+D

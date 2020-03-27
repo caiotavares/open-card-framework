@@ -1,0 +1,25 @@
+/BasicDatabase.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/BasicDatabaseFactory.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/CommandNotAllowedException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/DataObject.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/DatabaseCardService.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/EndOfTableReachedException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/IncorrectParameterInDataFieldException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/InstructionCodeNotSupportedException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/MemoryFailureError.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/NotEnoughMemorySpaceException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/ObjectAlreadyExistsException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/OperationNotSupportedException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/README/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/ReferencedObjectNotFoundException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/RequiredPrecedentCommandNotPerformedException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/SCQLError.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/SCQLException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/SecurityAttribute.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/SecurityStatusNotSatisfiedException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/WrongIdentifierSyntaxException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/WrongLengthException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/WrongLengthLeException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/WrongParameterException.java/1.1.1.1/Tue Sep  7 12:00:51 2004//
+/opencard.properties/1.1.1.1/Tue Sep  7 12:00:51 2004//
+D
